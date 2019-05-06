@@ -1,0 +1,89 @@
+page-home {
+
+
+  .header{
+    height: 45px;
+    min-height: 45px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    background-color: #524d63;
+    justify-content: flex-end;
+    padding-right: 12px;
+  }
+  .editChart{
+    margin-right: 12px;
+    background-color: #66727e !important;
+    border-radius: 0;
+    font-weight: 700;
+    text-transform: capitalize;
+    width: 110px;
+    height: 32px;
+    font-size: 14px;
+    padding: 0;
+    :hover{
+      background-color: #ef8377 !important;
+    }
+  }
+  .hidden{
+    display: none;
+  }
+.closeChart{
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  justify-content: flex-end;
+  -webkit-tap-highlight-color: transparent !important;
+  transition: none;
+  -webkit-transition: none;
+  :focus{
+    background-color: #ef8377 !important;
+  }
+}
+  .closeChartButton{
+    background-color: #ef8377;
+    border-radius: 0;
+    font-weight: 700;
+    text-transform: capitalize;
+    width: 110px;
+    height: 32px;
+    font-size: 14px;
+    padding: 0;
+    transition: none;
+    -webkit-transition: none;
+    :after{
+      background-color: #ef8377 !important;
+    }
+    :hover{
+      background-color: #ef8377 !important;
+    }
+  }
+  .chartGrid{
+    object-fit: fill;
+    display: flex;
+    display: -webkit-flex;
+  }
+  .charts{
+    //object-fit: fill;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  .footer{
+    height: 45px;
+    min-height: 45px;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    background-color: #524d63;
+    justify-content: flex-end;
+    padding-right: 12px;
+  }
+}
+
+
+

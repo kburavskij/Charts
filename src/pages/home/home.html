@@ -1,0 +1,18 @@
+<ion-header class="header">
+      <button ion-button class="editChart" (click)="editChart()">Edit
+      </button>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class="chartGrid" style="height: 90%; width: 95%">
+    <div style="height: 75%; width: 95%; position: absolute;" [chart]="myChart"></div>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer class="footer">
+  <ion-row class="closeChart">
+    <button class="closeChartButton" ion-button (click)="addDevices()">DATA</button>
+    <button class="closeChartButton" ion-button (click)="closeHome()">Cancel</button>
+  </ion-row>
+</ion-footer>

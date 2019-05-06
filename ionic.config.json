@@ -1,0 +1,7 @@
+{
+  "name": "charts",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

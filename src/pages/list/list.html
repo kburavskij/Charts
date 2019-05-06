@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-title class="charts">
+      <ion-row>
+      <ion-col>
+      </ion-col>
+      <ion-col class="addButtonRow">
+      <button class="addButton" ion-button (click)="createNewChart()">Add New
+        <div class="button-effect" style="transform: translate3d(-3px, -42px, 0px) scale(1); height: 119px; width: 119px; opacity: 0; transition: transform 319ms, opacity 224ms 95ms;"></div>
+      </button>
+      </ion-col>
+      </ion-row>
+    </ion-title>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="infoList">
+        <ion-col class="noCol" col-1> No </ion-col>
+        <ion-col class="nameCol" col-2> Name </ion-col>
+        <ion-col class="typeCol" col-2> Type </ion-col>
+        <ion-col class="comCol" col-7> Comment </ion-col>
+    </ion-row>
+    <ion-row class="buttonList" *ngFor="let chart of chartList, let i = index">
+      <ion-col class="noColFor" col-1 (click)="goToHomePage(i)">{{chart.chartNo}}</ion-col>
+      <ion-col col-2 (click)="goToHomePage(i)">{{chart.chartName}}</ion-col>
+      <ion-col col-2 (click)="goToHomePage(i)">{{chart.chartType}}</ion-col>
+      <ion-col class="comColFor" (click)="goToHomePage(i)">{{chart.chartCom}}</ion-col>
+      <ion-col class="listButtons">
+      <button ion-button class="editChart" (click)="editChart(i)" >Edit
+      </button>
+      <button ion-button class="deleteChart" (click)="removeChart(i)">Delete
+      </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

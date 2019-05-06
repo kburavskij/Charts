@@ -1,0 +1,196 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="header">
+    <div class="button-effect" style="transform: translate3d(-3px, -42px, 0px) scale(1); height: 119px; width: 119px; opacity: 0; transition: transform 319ms, opacity 224ms 95ms;"></div>
+
+    </ion-header>
+
+
+<ion-content>
+
+<ion-grid class="mainGrid">
+
+  <ion-row>
+  <ion-col col-6>
+    <ion-list>
+      <ion-item class="nameBox">
+        <ion-label item-start color="primary">Chart name:</ion-label>
+        <ion-input [(ngModel)]="chartName"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+
+    <ion-col col-6>
+  <ion-list>
+  <ion-item class="typeInput">
+    <ion-label item-start color="primary">Chart type:</ion-label>
+    <ion-select placeholder="Select charts type" [(ngModel)]="typeSelect" interface="popover">
+    <ion-option value="line">Line Chart</ion-option>
+    <ion-option value="pie">Pie Chart</ion-option>
+    <ion-option value="column">Column Chart</ion-option>
+  </ion-select>
+    </ion-item>
+  </ion-list>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid>
+    <ion-list>
+      <ion-item class="commentBox">
+        <ion-label stacked item-start class="commentsInput" color="primary">Comments:</ion-label>
+        <ion-textarea class="commentInput" [(ngModel)]="chartComment"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+  <ion-row class="mainRow">
+
+    <ion-grid class="deviceGridSegment">
+      <ion-row>
+        <ion-segment class="deviceSegment" [(ngModel)]="deviceSegment">
+          <ion-segment-button col-6 value="available">Available Devices</ion-segment-button>
+          <ion-segment-button col-6 value="selected">Selected Devices</ion-segment-button>
+        </ion-segment>
+      </ion-row>
+
+      <div [ngSwitch]="deviceSegment">
+
+        <ion-list *ngSwitchCase="'available'">
+      <ion-row class="deviceListSpec">
+        <ion-col col-1>
+          <ion-checkbox [(ngModel)]="allAvailableSelected" (click)="checkAvailable()"></ion-checkbox>
+        </ion-col>
+        <ion-col class="colA" col-1> No </ion-col>
+        <ion-col class="colB" col-2> Type </ion-col>
+        <ion-col class="colC" col-4> Name </ion-col>
+        <ion-col class="colD" col-4> Tenant </ion-col>
+      </ion-row>
+
+      <ion-row class="deviceList" *ngFor="let device of availableDevice, let i = index">
+        <ion-col col-1>
+          <ion-checkbox [(ngModel)]="availableDevice[i].boolean"></ion-checkbox>
+        </ion-col>
+        <ion-col col-1>{{i+1}}</ion-col>
+        <ion-col col-2>{{device.deviceType}}</ion-col>
+        <ion-col col-4>{{device.name}}</ion-col>
+        <ion-col col-4>{{device.tenant}}</ion-col>
+      </ion-row>
+      </ion-list>
+
+        <ion-list *ngSwitchCase="'selected'">
+          <ion-row class="deviceListSpec">
+            <ion-col col-1>
+              <ion-checkbox [(ngModel)]="allSelectedSelected" (click)="checkSelected()"></ion-checkbox>
+            </ion-col>
+            <ion-col class="colA" col-1> No </ion-col>
+            <ion-col class="colB" col-2> Type </ion-col>
+            <ion-col class="colC" col-4> Name </ion-col>
+            <ion-col class="colD" col-4> Tenant </ion-col>
+          </ion-row>
+          <ion-row class="deviceList" *ngFor="let device of selectedDevice, let i = index">
+            <ion-col col-1>
+              <ion-checkbox [(ngModel)]="selectedDevice[i].boolean"></ion-checkbox>
+            </ion-col>
+            <ion-col col-1>{{i+1}}</ion-col>
+            <ion-col col-2>{{device.deviceType}}</ion-col>
+            <ion-col col-4>{{device.name}}</ion-col>
+            <ion-col col-4>{{device.tenant}}</ion-col>
+          </ion-row>
+        </ion-list>
+
+      </div>
+
+    </ion-grid>
+
+    <ion-grid class="deviceGridAvailable">
+      <ion-label class="deviceLabel">Available Devices</ion-label>
+      <ion-row class="deviceListSpec">
+        <ion-col col-1>
+          <ion-checkbox [(ngModel)]="allAvailableSelected" (click)="checkAvailable()"></ion-checkbox>
+        </ion-col>
+        <ion-col class="colA" col-1> No </ion-col>
+        <ion-col class="colB" col-2> Type </ion-col>
+        <ion-col class="colC" col-4> Name </ion-col>
+        <ion-col class="colD" col-4> Tenant </ion-col>
+      </ion-row>
+
+      <ion-row class="deviceList" *ngFor="let device of availableDevice, let i = index">
+        <ion-col col-1>
+          <ion-checkbox [(ngModel)]="availableDevice[i].boolean"></ion-checkbox>
+        </ion-col>
+        <ion-col col-1>{{i+1}}</ion-col>
+        <ion-col col-2>{{device.deviceType}}</ion-col>
+        <ion-col col-4>{{device.name}}</ion-col>
+        <ion-col col-4>{{device.tenant}}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-col col-1 class="moveItemsCol">
+      <ion-row>
+      <button class="moveItemsLeft" (click)="pushToSelected()">
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+      </ion-row>
+
+      <ion-row>
+      <button class="moveItemsRight" (click)="pushToAvailable()">
+        <i class="fas fa-angle-double-left"></i>
+        </button>
+      </ion-row>
+    </ion-col>
+
+
+    <ion-grid class="deviceGridSelected">
+      <ion-label class="deviceLabel">Selected Devices</ion-label>
+      <ion-row class="deviceListSpec">
+        <ion-col col-1>
+          <ion-checkbox [(ngModel)]="allSelectedSelected" (click)="checkSelected()"></ion-checkbox>
+        </ion-col>
+        <ion-col class="colA" col-1> No </ion-col>
+        <ion-col class="colB" col-2> Type </ion-col>
+        <ion-col class="colC" col-4> Name </ion-col>
+        <ion-col class="colD" col-4> Tenant </ion-col>
+      </ion-row>
+
+      <ion-row class="deviceList" *ngFor="let device of selectedDevice, let i = index">
+        <ion-col col-1>
+          <ion-checkbox [(ngModel)]="selectedDevice[i].boolean"></ion-checkbox>
+        </ion-col>
+        <ion-col col-1>{{i+1}}</ion-col>
+        <ion-col col-2>{{device.deviceType}}</ion-col>
+        <ion-col col-4>{{device.name}}</ion-col>
+        <ion-col col-4>{{device.tenant}}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-row>
+
+
+</ion-grid>
+</ion-content>
+
+<ion-footer class="moveFooter">
+    <ion-row class="moveItemsColMob">
+      <button ion-button class="moveLeftMob"  (click)="pushToAvailable()">
+        <i class="fas fa-angle-double-left"></i>
+      </button>
+      <button ion-button class="moveRightMob" (click)="pushToSelected()">
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+    </ion-row>
+</ion-footer>
+
+<ion-footer class="footer">
+  <ion-row class="settingsButton">
+    <button ion-button class="cancelChart" (click)="closeModal()">Cancel
+    </button>
+    <button ion-button class="saveChart" (click)="saveChart()">Save
+    </button>
+  </ion-row>
+</ion-footer>
